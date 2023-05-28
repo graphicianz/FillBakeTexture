@@ -24,7 +24,7 @@ for y in range(height):
         # Check if the alpha channel is less than 255
         if a < 255:
             # Set the pixel color to red on the output canvas
-            output_image.putpixel((x, y), (255, 0, 0, 255))
+            output_image.putpixel((x, y), (0, 0, 0, 255))
 
 
 combined_image = Image.alpha_composite(combined_image, output_image)
