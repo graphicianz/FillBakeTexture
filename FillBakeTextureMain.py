@@ -12,6 +12,9 @@ width, height = input_image.size
 # Create an empty canvas with the same resolution
 output_image = Image.new("RGBA", (width, height))
 
+# Create a new empty canvas
+combined_image = Image.new("RGBA", (width, height))
+
 # Iterate over each pixel in the input image
 for y in range(height):
     for x in range(width):
@@ -24,6 +27,8 @@ for y in range(height):
             output_image.putpixel((x, y), (255, 0, 0, 255))
 
 
+combined_image = Image.alpha_composite(combined_image, output_image)
+combined_image = Image.alpha_composite(combined_image, input_image)
 
 # Save the output image
-output_image.save("images/test01_output.png")
+combined_image.save("images/test01_output.png")
